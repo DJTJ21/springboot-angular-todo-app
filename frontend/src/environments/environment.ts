@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  apiUrl: (window as any).__APP_CONFIG__?.apiUrl || '/api'
+  apiUrl: 'https://h8kso4sgo4oks0ok0cs40cos.159.69.185.176.sslip.io/api'
 };
