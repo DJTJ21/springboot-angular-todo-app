@@ -24,6 +24,12 @@ server:
     include-message: always
     include-binding-errors: always
 
+# CORS Configuration - Origins allowed to access the API
+# For multiple origins, separate with commas: https://frontend.com,https://admin.frontend.com
+app:
+  cors:
+    allowed-origins: ${APP_CORS_ALLOWED_ORIGINS:http://localhost:4200,http://localhost:80,http://localhost:8084,http://localhost}
+
 logging:
   level:
     com.ideploy.todo: DEBUG

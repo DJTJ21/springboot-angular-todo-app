@@ -35,6 +35,7 @@ services:
       SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL}
       SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
       SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
+      APP_CORS_ALLOWED_ORIGINS: ${APP_CORS_ALLOWED_ORIGINS:- http://localhost:8084}
     ports:
       - "8087:8080"
     depends_on:
@@ -48,9 +49,9 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-      args:
-        API_BASE_URL: ${API_BASE_URL}
     container_name: ideploy-frontend
+    environment:
+      API_URL: ${API_URL:-http://localhost:8087/api}
     ports:
       - "8084:80"
     depends_on:
